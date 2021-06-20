@@ -10,6 +10,7 @@ public class Map {
         }
     }
     public Map(char[][] mapTemplate){
+        chars = new char[mapTemplate.length][mapTemplate[0].length];
         chars = mapTemplate.clone();
     }
     public String toString(){
