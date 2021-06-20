@@ -8,7 +8,7 @@ public class FileLoader {
         BufferedReader bufferedReader = new BufferedReader(fileReader); //created a buffered reader to read a line from a file
         char[] data = String.valueOf(bufferedReader.readLine()).toCharArray(); //converts first 2 numbers in to a char array
         int row = Integer.parseInt(String.valueOf(data[0])); // parse to int from char array
-        int col = Integer.parseInt(String.valueOf(data[1])); // parse from int to char array
+        int col = Integer.parseInt(String.valueOf(data[2])); // parse from int to char array
         char[][] clearData = new char[row][col]; // create a clear array to pass it to Map method
         data = String.valueOf(bufferedReader.readLine()).toCharArray(); // skips blank line
         for (int i = 0; i < row; i++) { // loop for cloning data from old array
