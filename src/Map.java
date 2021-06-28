@@ -25,7 +25,7 @@ public class Map {
         chars = mapTemplate.clone();
     }
 
-    public String toString() {
+    public String toString() { // prints out the map
         for (int i = 0; i < chars.length; i++) {
             System.out.println(chars[i]);
         }
@@ -33,7 +33,7 @@ public class Map {
 
     }
 
-    public void addWalls() {
+    public void addWalls() { // adds X's on the border of the map
         for (int i = 0; i < chars.length; i++) {
             chars[i][0] = 'X';
             chars[i][chars[i].length - 1] = 'X';
@@ -44,7 +44,7 @@ public class Map {
 
     }
 
-    public void addItems(int numOfItems) {
+    public void addItems(int numOfItems) {  // this method adds specific number of items on the map
         char[] items = new char[numOfItems];
         for (int i = 0; i < numOfItems; i++) {
             items[i] = (char) (i + 1 + '0');
@@ -61,7 +61,7 @@ public class Map {
 
     }
 
-    public void initHeroLocation() {
+    public void initHeroLocation() {    // it checks if there is a player on the location, if it is not - create a player
         for (int i = 0; i < chars.length; i++) {
             for (int j = 0; j < chars[i].length; j++) {
                 if (chars[i][j] == 'H') {
@@ -84,7 +84,7 @@ public class Map {
         }
     }
 
-    private boolean isValidMove(int row, int col) {
+    private boolean isValidMove(int row, int col) {  //it checks if the move is valid and returns true or false
         if (chars[row][col] != 'X') {
             return true;
         } else {
@@ -93,8 +93,8 @@ public class Map {
     }
 
 
-    private char applyMove(int endRow, int endCol) {
-        if (isValidMove(endRow, endCol)) {
+    private char applyMove(int endRow, int endCol) {  //this method changes the given point to H and returns current
+        if (isValidMove(endRow, endCol)) {            // hero coordinates
             chars[endRow][endCol] = 'H';
             heroRow = endRow;
             heroCol = endCol;
@@ -103,8 +103,8 @@ public class Map {
 
     }
 
-    public char processInput(int direction) {
-        if (direction == 0) {
+    public char processInput(int direction) { // this method call aplyMove and change the given coordinate to H
+        if (direction == 0) {                 // it also changes previous coordinates to .
             if (isValidMove(heroRow - 1, heroCol)) {
                 if (chars[heroRow - 1][heroCol] != '.') {
                     chars[heroRow - 1][heroCol] = '.';
